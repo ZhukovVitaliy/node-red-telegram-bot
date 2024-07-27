@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: node-red
-    env: docker
-    plan: free
-    dockerfile_path: Dockerfile
-    auto_deploy: true

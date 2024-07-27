@@ -1,15 +1,13 @@
 {
-  "name": "node-red-app",
+  "name": "node-red-vercel",
   "version": "1.0.0",
-  "description": "Node-RED application",
-  "main": "index.js",
+  "description": "Node-RED app on Vercel",
+  "main": "server.js",
   "scripts": {
-    "start": "npx node-red"
+    "start": "node server.js"
   },
   "dependencies": {
+    "express": "^4.18.2",
     "node-red": "^3.0.0"
-  },
-  "engines": {
-    "node": ">=16.x"
   }
 }
