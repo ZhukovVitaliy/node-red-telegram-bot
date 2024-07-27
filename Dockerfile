@@ -1,8 +1,14 @@
-FROM nodered/node-red:latest
+# Используйте официальный образ Node.js в качестве базового
+FROM node:16
 
-# COPY ./settings.js /data/settings.js
-# COPY ./nodes /data/nodes
+WORKDIR /usr/src/app
 
-WORKDIR /data
+COPY package*.json ./
 
-CMD ["npm", "start"]
+RUN npm install
+
+COPY . .
+
+EXPOSE 1880
+
+CMD ["npx", "node-red"]
