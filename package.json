@@ -1,15 +1,15 @@
 {
   "name": "node-red-glitch",
   "version": "1.0.0",
-  "description": "Node-RED running on Glitch",
-  "main": "index.js",
+  "description": "Node-RED on Glitch",
+  "main": "server.js",
   "scripts": {
-    "start": "node --max-old-space-size=256 node_modules/node-red/red.js --userDir ./"
+    "start": "node server.js"
   },
   "dependencies": {
     "node-red": "^3.0.0"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": "16.x"
   }
 }
