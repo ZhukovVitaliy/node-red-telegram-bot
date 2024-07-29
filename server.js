@@ -17,6 +17,12 @@ RED.init(server, settings);
 app.use(settings.httpAdminRoot, RED.httpAdmin);
 app.use(settings.httpNodeRoot, RED.httpNode);
 
-module.exports = (req, res) => {
-  RED.httpNode(req, res);
-};
+RED.start()
+  .then(() => {
+    server.listen(process.env.PORT || 3000, () => {
+      console.log("Node-RED server is running");
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to start Node-RED:", err);
+  });

@@ -1,7 +1,7 @@
 {
-  "name": "node-red-vercel",
+  "name": "node-red-glitch",
   "version": "1.0.0",
-  "description": "Node-RED app on Vercel",
+  "description": "Node-RED on Glitch",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
