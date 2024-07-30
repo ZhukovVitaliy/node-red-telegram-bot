@@ -1,4 +1,16 @@
 {
   "install": "npm install",
-  "start": "npm start"
+  "start": "npm start",
+  "watch": {
+    "install": {
+      "include": ["package.json"]
+    },
+    "restart": {
+      "include": ["server.js", "node_modules"]
+    },
+    "throttle": 1000
+  },
+  "env": {
+    "NODE_ENV": "production"
+  }
 }

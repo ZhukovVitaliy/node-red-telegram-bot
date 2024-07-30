@@ -1,7 +1,7 @@
 {
   "name": "node-red-glitch",
   "version": "1.0.0",
-  "description": "Node-RED on Glitch",
+  "description": "Node-RED server on Glitch",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

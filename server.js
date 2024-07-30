@@ -2,32 +2,33 @@ const http = require("http");
 const express = require("express");
 const RED = require("node-red");
 
-// Create an Express app
 const app = express();
-
-// Create a server
 const server = http.createServer(app);
 
-// Create the settings object
 const settings = {
-  httpAdminRoot: "/admin",
-  httpNodeRoot: "/",
-  userDir: "./.nodered/",
-  flowFile: "flows.json",
-  functionGlobalContext: {}, // Enables global context
+  httpAdminRoot: "/red",
+  httpNodeRoot: "/api",
+  userDir: ".nodered/",
+  functionGlobalContext: {}, // enables global context
 };
 
-// Initialise the runtime with a server and settings
+// Serve the editor UI from /red
+app.use("/red", express.static("public"));
+
+// Create the Node-RED runtime
 RED.init(server, settings);
 
-// Serve the editor UI from /admin
-app.use(settings.httpAdminRoot, RED.httpAdmin);
-
-// Serve the http nodes UI from /
+// Serve the http nodes UI from /api
 app.use(settings.httpNodeRoot, RED.httpNode);
 
-// Start the server
-server.listen(process.env.PORT || 3000);
+// Start the Node-RED runtime
+server.listen(process.env.PORT || 3000, function () {
+  console.log(
+    "Node-RED running at http://localhost:" +
+      (process.env.PORT || 3000) +
+      "/red"
+  );
+});
 
-// Start Node-RED
+// Start the Node-RED server
 RED.start();
